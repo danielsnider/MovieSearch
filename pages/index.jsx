@@ -12,11 +12,8 @@ import "./index.css";
 
 const components = {
   settings: {
-    // type: "movieappfinal",
     app: "movie6",
     url: "http://192.168.136.148:9200/",
-    // app: "MovieAppFinal",
-    // credentials: "RxIAbH9Jc:6d3a5016-5e9d-448f-bd2b-63c80b401484",
     theme: {
       typography: {
         fontFamily:
@@ -296,5 +293,3 @@ class Main extends Component {
   }
 }
 export default Main;
-
-// console.log(document.getElementById('root'))
