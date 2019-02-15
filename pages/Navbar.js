@@ -1,14 +1,34 @@
 import React, { Component } from "react";
 import { DataSearch } from "@appbaseio/reactivesearch";
 
+function custQuery(value, props) {
+  if (value.length == 0) {
+    return;
+  }
+  if (!value.includes(":")) {
+    return;
+  }
+
+  var res = value.split(":");
+  var field = res[0];
+  var search = res[1];
+  var query = { [field]: search };
+
+  return {
+    match: query
+  };
+}
+
 const components = {
   dataSearch: {
     componentId: "mainSearch",
-    dataField: "original_title.search",
+    // dataField: ["descriptions"],
+    // dataField: ["StudyDescription","ReasonForStudy","SeriesDescription","StudyComments"],
+    customQuery: custQuery,
     categoryField: "title",
     className: "search-bar",
     queryFormat: "and",
-    placeholder: "Search for movies...",
+    placeholder: "Search for images...",
     iconPosition: "left",
     autosuggest: false,
     filterLabel: "search",
@@ -35,7 +55,11 @@ class Navbar extends Component {
     return (
       <div className="navbar">
         <div className="logo-container">
-          <img className="app-logo" src="/static/logo.jpg" alt="MovieSearch" />
+          <img
+            className="app-logo"
+            src="/static/sickkids.png"
+            alt="ImageArchive"
+          />
         </div>
 
         <div className="search-container">
