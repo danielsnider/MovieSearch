@@ -12,8 +12,8 @@ import "./index.css";
 
 const components = {
   settings: {
-    app: "movie6",
-    url: "http://192.168.136.148:9200/",
+    app: "movie7",
+    url: "http://192.168.136.128:9200/",
     theme: {
       typography: {
         fontFamily:
@@ -109,12 +109,13 @@ const components = {
             <a
               target="#"
               href={
-                "http://192.168.136.148:8080/index.html?input=" + res.dicom_url
+                "http://192.168.136.128:8080/index.html?input=http://192.168.136.128:3000/static/dicom/" +
+                res.dicom_filename
               }
             >
               <div className="img">
                 <img
-                  src={"static/" + res.poster_path}
+                  src={"static/" + res.thumbnail_filename}
                   alt={res.original_title}
                   className="result-image"
                 />
@@ -187,7 +188,9 @@ const components = {
           </div>
         </div>
       ),
-      url: "http://192.168.136.148:8080/index.html?input=" + res.dicom_url
+      url:
+        "http://192.168.136.128:8080/index.html?input=http://192.168.136.128:3000/static/dicom/" +
+        res.dicom_filename
     }),
     innerClass: {
       title: "result-title",

@@ -1,30 +1,44 @@
 import React, { Component } from "react";
 import { DataSearch } from "@appbaseio/reactivesearch";
 
-function custQuery(value, props) {
-  if (value.length == 0) {
-    return;
-  }
-  if (!value.includes(":")) {
-    return;
-  }
+// function custQuery(value, props) {
+// COLON DELIMITED SEARCH
+// Examle FIELD:SEARCH
+//   if (value.length == 0) {
+//     return;
+//   }
+//   if (!value.includes(":")) {
+//     return;
+//   }
 
-  var res = value.split(":");
-  var field = res[0];
-  var search = res[1];
-  var query = { [field]: search };
+//   var res = value.split(":");
+//   var field = res[0];
+//   var search = res[1];
+//   var query = { [field]: search };
 
+//   return {
+//     match: query
+//   };
+// }
+
+function custQueryAllFields(value, props) {
   return {
-    match: query
+    query: { multi_match: { query: value } }
   };
 }
+
+// function custQueryAllDocuments(value, props) {
+//   return {
+//     "query":{"match_all":{}}
+//   };
+// }
 
 const components = {
   dataSearch: {
     componentId: "mainSearch",
     // dataField: ["descriptions"],
     // dataField: ["StudyDescription","ReasonForStudy","SeriesDescription","StudyComments"],
-    customQuery: custQuery,
+    customQuery: custQueryAllFields,
     categoryField: "title",
     className: "search-bar",
     queryFormat: "and",

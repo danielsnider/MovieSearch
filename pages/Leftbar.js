@@ -186,18 +186,21 @@ class Leftbar extends Component {
   }
 
   render() {
-    var show_rangeSliderAge;
-    if (this.state.isChecked) {
-      show_rangeSliderAge = "checked";
-    } else {
-      show_rangeSliderAge = "unchecked";
-      // updateHits()
-      // removeComponent(...components.dateRangeAcquisition)
-      // this.forceUpdate();
-      // console.log(document)
-      // var elem = document.getElementById('ceohuao');
-      // elem.parentNode.removeChild(elem);
-    }
+    // var show_rangeSliderAge;
+    // console.log(this)
+    // if (this.state.isChecked) {
+    //   components.rangeSliderAge.dataField = "PatientAgeInt";
+    //   show_rangeSliderAge = "checked";
+    // } else {
+    //   components.rangeSliderAge.dataField = "";
+    //   show_rangeSliderAge = "unchecked";
+    //   // updateHits()
+    //   // removeComponent(...components.dateRangeAcquisition)
+    //   // this.forceUpdate();
+    //   // console.log(document)
+    //   // var elem = document.getElementById('ceohuao');
+    //   // elem.parentNode.removeChild(elem);
+    // }
 
     return (
       <div className={this.props.isClicked ? "left-bar-optional" : "left-bar"}>
